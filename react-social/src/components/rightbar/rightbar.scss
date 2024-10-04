@@ -1,0 +1,89 @@
+@import "../../style.scss";
+
+.rightbar {
+  @include themify($themes) {
+    flex: 3;
+    position: sticky;
+    top: 70px;
+    height: calc(100vh - 70px);
+    background-color: themed("bgSoft");
+
+
+    @include mobile{
+      display: none;
+    }
+
+    @include tablet{
+      display: none;
+    }
+    
+    .container {
+      padding: 10px;
+
+      .item {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 10px;
+        margin: 20px 14px;
+        padding: 20px;
+        background-color: themed("bg");
+
+        span {
+            color: themed("textcolorsoft");
+        }
+
+        .user {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          position: relative;
+          .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0px;
+            img {
+              width: 30px;
+              height: 30px;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+            p {
+                color: themed("textcolorsoft");
+            }
+            span {
+              font-weight: 200;
+              color: themed("textcolor");
+            }
+            .online {
+              width: 10px;
+              height: 10px;
+              border-radius: 50%;
+              background-color: limegreen;
+              top: 1;
+              right: 0;
+              position: absolute;
+            }
+          }
+        }
+        .buttons {
+          display: flex;
+          gap: 10px;
+
+          button {
+            padding: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            &:first-child {
+              background-color: #51733e;
+            }
+            &:last-child {
+              background-color: #673e73;
+            }
+          }
+        }
+      }
+    }
+  }
+}

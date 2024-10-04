@@ -1,0 +1,106 @@
+@import "../../style.scss";
+
+.post {
+  @include themify($themes) {
+    padding: 20px;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    background-color: themed("bg");
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      .user {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .menu-icon{
+    background-color: themed("bg");
+          
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 4px;
+            
+            text-decoration: none;
+            img{
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+            
+            .user-details{
+                .name {
+                    font-weight: 500;
+                    font-size: 17px;
+                    text-decoration: none;
+                    color: themed("textcolor");
+                }
+                .date {
+                  color: themed("textcolor");
+                  font-size: 11px;
+                  margin-bottom: -10px;
+                }
+            }
+
+        }
+
+      }
+      .post-img {
+        img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+      }
+
+      .caption{
+        display: inline-flex;
+        span{
+            font-weight: 600;
+            font-size: 17px;
+            color: themed("textcolor");
+        }
+        p{
+          color: themed("textcolor");
+            font-size: 16px;
+        }
+     }
+
+      .info {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: themed("textcolor");
+        .likes{
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+        }
+        .comments{
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            gap: 4px;
+            cursor: pointer;
+
+        }
+        .share{
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+
+        }
+      }
+    }
+  }
+}

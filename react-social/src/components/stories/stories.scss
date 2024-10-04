@@ -1,0 +1,115 @@
+@import "../../style.scss";
+
+.stories {
+  @include themify($themes) {
+    display: flex;
+    width: 100%;
+    height: 280px;
+    gap: 10px;
+    margin-bottom: 30px;
+    position: relative;
+
+    @include mobile{
+        height: 50px;
+        justify-content: space-between;
+      }
+    // @include tablet{
+    //     height: 150px;
+    //     gap: 20px;
+    //   }
+
+    .story {
+        flex: 1;
+        overflow: hidden;
+        border-radius: 10px;
+        display: flex;
+        position: relative;
+        z-index: 1;
+
+        @include mobile{
+            border-radius: 50%;
+            min-height: 64px;
+            min-width: 64px;
+            z-index: 1;
+          }
+
+
+        // Image inside each story
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            @include mobile{
+              border-radius: 50%;
+              min-height: 64px;
+              min-width: 64px;
+              z-index: 1;
+            }
+        }
+
+        // Gradient opacity effect from bottom to top
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+            pointer-events: none;
+            z-index: 1; // Keep the gradient under the text
+        }
+
+        // Button inside the story
+        button {
+            position: absolute;
+            width: 17px;
+            height: 17px;
+            background-color: blueviolet;
+            color: white;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            bottom: 34px;
+            left: 10px;
+            border-radius: 50%;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            z-index: 9999; // Keep button above the gradient
+
+            &:hover {
+                background-color: darkviolet;
+            }
+            @include mobile{
+                top: 40px;
+                left: 40px;
+                z-index: 9999;
+                width: 17px;
+                height: 17px;
+              }
+
+        }
+
+        // Story label (span) - unaffected by gradient
+        span {
+            position: absolute;
+            bottom: 10px;
+            left: 12px;
+            font-weight: bolder;
+            color: #ffffff; 
+            font-size: 16px;
+            z-index: 2; 
+
+            @include mobile{
+                display: none;
+              }
+        }
+    }
+}
+}
